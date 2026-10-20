@@ -1,0 +1,448 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ck",
+				"ckb-testtool"
+			],
+			[
+				"loa",
+				"load_script"
+			],
+			[
+				"So",
+				"Source"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Package Control Messages\n========================\n\n\nLSP\n---\n\n  => 2.16.0\n  \n  # Features\n  \n  - Allow disabling the `lsp_save` key binding with the `disable_lsp_save` view setting (#3068) (Rafał Chłodnicki)\n  - Add `WindowManager.is_session_starting()` (#3081) (Rafał Chłodnicki)\n  \n  # Fixes\n  \n  - Don't start language servers in deleted workspace folders (#3073) (Rafał Chłodnicki)\n  - Add missing dynamic capability exceptions, fixing \"Format Selection\" with LSP-ruff (#3084) (Raoul Wols)\n  - Support `LocationLink` in `editor.action.showReferences` (#3080) (Rafał Chłodnicki)\n  - Apply all external configs registered within one debounce window (#3075) (Rafał Chłodnicki)\n  - Point the \"Restart Servers\" menu item at `lsp_restart_server` (#3083) (Roshan Ramani)\n  - Match the schema default of show_messages_panel_level to the setting (#3079) (Roshan Ramani)\n  - Forget diagnostic result IDs when clearing diagnostics for a URI (#3070) (Rafał Chłodnicki)\n  - Fix reading lines from files that are not valid UTF-8 (#3067) (Rafał Chłodnicki)\n  - Highlight method names containing periods in the server log (#3062) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Pass the reverse insert mode to `get_text_edit_range` (#3066) (Rafał Chłodnicki)\n\n  => 2.15.0\n  \n  # Features\n  \n  - Show `window/showMessage[Request]` in a panel (#3053) (Rafał Chłodnicki)\n  - Expose range_to_region from public API (#3052) (Rafał Chłodnicki)\n  - Add `LspPlugin.on_server_request_async` API (#3050) (Rafał Chłodnicki)\n  \n  # Fixes\n  \n  - Allow custom settings of LSP-* packages in project schema (#3059) (Rafał Chłodnicki)\n  - Fix \"Troubleshoot server\" config handling, working directory and copy button (#3058) (Rafał Chłodnicki)\n  - Run LspPlugin command handlers on the async thread (#3055) (Rafał Chłodnicki)\n  - Start \"Troubleshoot server\" in the same working directory as a normal start (#3057) (Roshan Ramani)\n  - Clear diagnostics annotations and tags on server shutdown (#3047) (Rafał Chłodnicki)\n  - Do not end a new session at once when its initiating view closed (#3048) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Stricter ListInputItem types (#3036) (Rafał Chłodnicki)\n  \n  # Documentation\n  \n  - Add Shuck and update Tombi configuration instructions (#3054) (Evan Read)\n  - Document auto_complete_selector client setting (#3044) (Rafał Chłodnicki)\n\n  => 2.14.0\n  \n  # Features\n  \n  - Add additional exports to public API (#2910) (Rafał Chłodnicki)\n  - Show progress when requesting code actions manually (#2987) (Raoul Wols)\n  - Add optional argument severity_level for diagnostics navigation (#2984) (jwortmann)\n  - Add language IDs for glimmer-js and glimmer-ts (#3028) (Isaac Lee)\n  - Add Svelte language identifier (#3000) (dontwanttothink)\n  \n  # Fixes\n  \n  - Pick saved formatter on \"format-on-save\" or \"format file\" (#3034) (Rafał Chłodnicki)\n  - Fix rename file handler not passing path to listdir (#3024) (Rafał Chłodnicki)\n  - Fix Git base scopes in language ID mapping (#3020) (jwortmann)\n  - Fix handling of unchanged diagnostics report (#3012) (jwortmann)\n  - Ensure selection start is retained when range formatting (#2993) (jwortmann)\n  - Properly fix wrong capability name for textDocumentContent provider (#2980) (jwortmann)\n  - Fix tree item text indent when no kind (#2974) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Replace SublimeKind with Kind (#3039) (Rafał Chłodnicki)\n  - Narrow HtmlSheet return type in type stubs (#3010) (jwortmann)\n  - Enhance logging functions (#2991) (Raoul Wols)\n  \n  # Documentation\n  \n  - Add Devsense PHP Tools installation and configuration instructions (#3030) (Jakub Míšek)\n  - Add instructions for Slang language server (Janos Wortmann)\n  - Add roslyn-language-server to language server docs (#2978) (Raoul Wols)\n  - Add syntax_map to roslyn-language-server configuration (#2988) (Raoul Wols)\n  - Replace <path-to-your-home-folder> by ${home} in docs (#2979) (Raoul Wols)\n",
+			"settings":
+			{
+				"buffer_size": 3918,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"package_control_message",
+					{
+						"message": "\n\nLSP\n---\n\n  => 2.16.0\n  \n  # Features\n  \n  - Allow disabling the `lsp_save` key binding with the `disable_lsp_save` view setting (#3068) (Rafał Chłodnicki)\n  - Add `WindowManager.is_session_starting()` (#3081) (Rafał Chłodnicki)\n  \n  # Fixes\n  \n  - Don't start language servers in deleted workspace folders (#3073) (Rafał Chłodnicki)\n  - Add missing dynamic capability exceptions, fixing \"Format Selection\" with LSP-ruff (#3084) (Raoul Wols)\n  - Support `LocationLink` in `editor.action.showReferences` (#3080) (Rafał Chłodnicki)\n  - Apply all external configs registered within one debounce window (#3075) (Rafał Chłodnicki)\n  - Point the \"Restart Servers\" menu item at `lsp_restart_server` (#3083) (Roshan Ramani)\n  - Match the schema default of show_messages_panel_level to the setting (#3079) (Roshan Ramani)\n  - Forget diagnostic result IDs when clearing diagnostics for a URI (#3070) (Rafał Chłodnicki)\n  - Fix reading lines from files that are not valid UTF-8 (#3067) (Rafał Chłodnicki)\n  - Highlight method names containing periods in the server log (#3062) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Pass the reverse insert mode to `get_text_edit_range` (#3066) (Rafał Chłodnicki)\n\n  => 2.15.0\n  \n  # Features\n  \n  - Show `window/showMessage[Request]` in a panel (#3053) (Rafał Chłodnicki)\n  - Expose range_to_region from public API (#3052) (Rafał Chłodnicki)\n  - Add `LspPlugin.on_server_request_async` API (#3050) (Rafał Chłodnicki)\n  \n  # Fixes\n  \n  - Allow custom settings of LSP-* packages in project schema (#3059) (Rafał Chłodnicki)\n  - Fix \"Troubleshoot server\" config handling, working directory and copy button (#3058) (Rafał Chłodnicki)\n  - Run LspPlugin command handlers on the async thread (#3055) (Rafał Chłodnicki)\n  - Start \"Troubleshoot server\" in the same working directory as a normal start (#3057) (Roshan Ramani)\n  - Clear diagnostics annotations and tags on server shutdown (#3047) (Rafał Chłodnicki)\n  - Do not end a new session at once when its initiating view closed (#3048) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Stricter ListInputItem types (#3036) (Rafał Chłodnicki)\n  \n  # Documentation\n  \n  - Add Shuck and update Tombi configuration instructions (#3054) (Evan Read)\n  - Document auto_complete_selector client setting (#3044) (Rafał Chłodnicki)\n\n  => 2.14.0\n  \n  # Features\n  \n  - Add additional exports to public API (#2910) (Rafał Chłodnicki)\n  - Show progress when requesting code actions manually (#2987) (Raoul Wols)\n  - Add optional argument severity_level for diagnostics navigation (#2984) (jwortmann)\n  - Add language IDs for glimmer-js and glimmer-ts (#3028) (Isaac Lee)\n  - Add Svelte language identifier (#3000) (dontwanttothink)\n  \n  # Fixes\n  \n  - Pick saved formatter on \"format-on-save\" or \"format file\" (#3034) (Rafał Chłodnicki)\n  - Fix rename file handler not passing path to listdir (#3024) (Rafał Chłodnicki)\n  - Fix Git base scopes in language ID mapping (#3020) (jwortmann)\n  - Fix handling of unchanged diagnostics report (#3012) (jwortmann)\n  - Ensure selection start is retained when range formatting (#2993) (jwortmann)\n  - Properly fix wrong capability name for textDocumentContent provider (#2980) (jwortmann)\n  - Fix tree item text indent when no kind (#2974) (Rafał Chłodnicki)\n  \n  # Refactors\n  \n  - Replace SublimeKind with Kind (#3039) (Rafał Chłodnicki)\n  - Narrow HtmlSheet return type in type stubs (#3010) (jwortmann)\n  - Enhance logging functions (#2991) (Raoul Wols)\n  \n  # Documentation\n  \n  - Add Devsense PHP Tools installation and configuration instructions (#3030) (Jakub Míšek)\n  - Add instructions for Slang language server (Janos Wortmann)\n  - Add roslyn-language-server to language server docs (#2978) (Raoul Wols)\n  - Add syntax_map to roslyn-language-server configuration (#2988) (Raoul Wols)\n  - Replace <path-to-your-home-folder> by ${home} in docs (#2979) (Raoul Wols)\n"
+					},
+					"AQAAAAAAAAAAAAAATg8AAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		},
+		{
+			"file": "contracts/zakat-lock/src/lib.rs",
+			"settings":
+			{
+				"buffer_size": 223,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "contracts/zakat-lock/src/main.rs",
+			"redo_stack":
+			[
+				[
+					15,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAEEAAAAAAAAAgQAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAQQAAAAAAAABBAAAAAAAAAAAAAAAAPC/"
+				]
+			],
+			"settings":
+			{
+				"buffer_size": 3746,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/User/c3/C3.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c3/C3.sublime-build",
+					"C3 build"
+				],
+				[
+					"Packages/User/c3/C3.sublime-build",
+					"C3 clean"
+				],
+				[
+					"Packages/User/c3/C3.sublime-build",
+					"C3 test"
+				],
+				[
+					"Packages/User/c3/C3.sublime-build",
+					"C3 benchmark"
+				],
+				[
+					"Packages/User/c3/C3.sublime-build",
+					"C3 Run"
+				]
+			],
+			[
+				"Packages/User/c3/C3.sublime-build",
+				"C3 build"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insata",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/rasheed/Projects/ckb-stuffs/zakat-vault",
+		"/home/rasheed/Projects/ckb-stuffs/zakat-vault/contracts",
+		"/home/rasheed/Projects/ckb-stuffs/zakat-vault/contracts/zakat-lock",
+		"/home/rasheed/Projects/ckb-stuffs/zakat-vault/contracts/zakat-lock/src"
+	],
+	"file_history":
+	[
+		"/home/rasheed/Projects/hello_c3/project.json",
+		"/home/rasheed/Projects/hello_c3/src/main.c3",
+		"/home/rasheed/Projects/hello_c3/build/benchmarkrun",
+		"/home/rasheed/Projects/ckb-stuffs/ckbuilder/reports/week-01/README.md",
+		"/home/rasheed/Projects/ckb-stuffs/ckbuilder/reports/week-02/README.md",
+		"/home/rasheed/Projects/ckb-stuffs/ckbuilder/reports/template.md",
+		"/home/rasheed/Pictures/Screenshots/Screenshot_20260822_233640.png",
+		"/home/rasheed/Pictures/Screenshots/Screenshot_20260822_233619.png",
+		"/home/rasheed/Pictures/Screenshots/Screenshot_20260822_232726.png",
+		"/home/rasheed/Pictures/Screenshots/Screenshot_20260822_232612.png",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/tests/src/tests.rs",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/contracts/password-lock/src/main.rs",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/contracts/simple-print-args/src/main.rs",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/Makefile",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/contracts/hello-world/src/main.rs",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-script/tests/src/lib.rs",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-example/Cargo.toml",
+		"/home/rasheed/Projects/ckb-stuffs/ckb-rust-example/src/main.rs",
+		"/home/rasheed/Projects/learn-c/main.c",
+		"/home/rasheed/CLionProjects/testing-faiss/src/io.cpp",
+		"/home/rasheed/CLionProjects/testing-faiss/src/scanner.cpp",
+		"/home/rasheed/CLionProjects/testing-faiss/include/faiss_utils.hpp",
+		"/home/rasheed/CLionProjects/testing-faiss/src/faiss_utils.cpp"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3918,
+								3918
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_indent": false,
+							"gutter": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "contracts/zakat-lock/src/lib.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "contracts/zakat-lock/src/main.rs",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust Enhanced/RustEnhanced.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.exec":
+	{
+		"height": 224.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "Packages/User/c3/C3.sublime-build",
+	"project": "sadaqah-vault.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ifaisshpp",
+				"include/faiss_utils.hpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 354.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

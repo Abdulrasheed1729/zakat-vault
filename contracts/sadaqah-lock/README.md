@@ -1,4 +1,4 @@
-# zakat-lock
+# sadaqah-lock
 
 TODO: Write this readme
 

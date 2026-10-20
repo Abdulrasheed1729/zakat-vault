@@ -1,4 +1,4 @@
-# zakat-vault
+# sadaqah-vault
 
 TODO: Write this readme
 
