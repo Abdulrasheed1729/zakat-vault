@@ -13,6 +13,9 @@ pub enum Error {
     BadRate,
     OwnerNotAuthorized,
     CharityShortPaid,
+    BadCharityCount,
+    DuplicateCharity,
+    MathOverflow,
 }
 
 impl From<SysError> for Error {

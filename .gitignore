@@ -2,3 +2,4 @@
 /target
 /tests/failed_txs
 /Cargo.lock
+report.md
