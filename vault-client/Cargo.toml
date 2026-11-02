@@ -1,0 +1,11 @@
+[package]
+name = "vault-client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ckb-hash = "1.1.1"
+ckb-jsonrpc-types = "1.2.1"
+ckb-sdk = "5.1.0"
+ckb-types = "1.1.4"
+secp256k1 = { version = "0.29", features = ["recovery"] }
