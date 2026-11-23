@@ -109,12 +109,38 @@ Set in `.env` (see `.env.example` for the template):
 
 `scripts/e2e-vault-client.sh` runs a full scripted walkthrough (create →
 split withdrawal → rejected underpayment → successful withdrawal) against
-the live devnet, with clear pass/fail output — handy for reports or
-sanity-checking after a contract change:
+whatever node the current config points at, with clear pass/fail output —
+handy for reports or sanity-checking after a contract change:
 
 ```sh
 ./scripts/e2e-vault-client.sh
 ```
+
+It reads config from `.env` if present, falling back to whatever is already
+in the environment (which is how CI runs it — see below). The CKB amounts
+used at each step are overridable via env vars (`CREATE_AMOUNT_CKB`,
+`WITHDRAW_AMOUNT_CKB`, `SPLIT_SPEC`, `SHORT_AMOUNT_CKB`,
+`FINAL_AMOUNT_CKB`) if you need smaller amounts for a less-funded account.
+
+## Testnet CI
+
+`.github/workflows/testnet-e2e.yml` runs this same e2e script against CKB
+testnet, manually triggered from the Actions tab (it spends real faucet
+funds, so it isn't run on every push). One-time setup:
+
+1. Deploy the contract to testnet yourself with a funded key:
+   ```sh
+   offckb deploy --network testnet --privkey-file <path-to-your-key>
+   ```
+   This produces `deployment/testnet/sadaqah-lock/` — commit it.
+2. Fund an owner account and one or more charity addresses from the
+   [testnet faucet](https://faucet.nervos.org).
+3. In the repo's **Settings → Secrets and variables → Actions**, add:
+   - Secrets: `TESTNET_OWNER_PRIVKEY`, `TESTNET_CHARITY_ADDRESSES`
+   - Variables: `TESTNET_VAULT_CODE_HASH`, `TESTNET_VAULT_CODE_TX_HASH`,
+     and optionally `TESTNET_RPC_URL`
+
+See the comments at the top of the workflow file for the full details.
 
 ## Notes
 

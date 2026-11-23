@@ -1,0 +1,12 @@
+{
+  "cell_recipes": [
+    {
+      "name": "sadaqah-lock",
+      "tx_hash": "0x4dd35430c3d4a8fc8a30dff15397f9c52c7c7a45aa2766dc0a5ae1f570851691",
+      "index": 0,
+      "occupied_capacity": 4620800000000,
+      "data_hash": "0x0144eab3d3b4ecbcadb0eae7099cc37cd1736c5a85ff6afec6bf19314d60542c"
+    }
+  ],
+  "dep_group_recipes": []
+}

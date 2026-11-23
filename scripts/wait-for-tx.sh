@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Polls the devnet RPC until a transaction is committed (or times out).
-# Usage: scripts/wait-for-tx.sh <tx_hash> [max_tries]
+# Polls a node's RPC until a transaction is committed (or times out).
+# Usage: scripts/wait-for-tx.sh <tx_hash> [max_tries] [interval_secs]
 set -euo pipefail
 
 TX="$1"
 MAX_TRIES="${2:-30}"
+INTERVAL="${3:-2}"
 RPC="${CKB_RPC:-http://127.0.0.1:8114}"
 
 for i in $(seq 1 "$MAX_TRIES"); do
@@ -15,7 +16,7 @@ for i in $(seq 1 "$MAX_TRIES"); do
   if [ "$STATUS" = "committed" ]; then
     exit 0
   fi
-  sleep 2
+  sleep "$INTERVAL"
 done
 
 echo "timed out waiting for $TX to commit" >&2

@@ -1,0 +1,70 @@
+name: Testnet E2E
+
+# Manually triggered only: this spends real (faucet) testnet CKB on every
+# run, so it should not run on every push/PR. Trigger it from the Actions
+# tab when you want to smoke-test a deployed contract on CKB testnet.
+#
+# One-time setup required before this will work (see vault-client/README.md
+# and deployment/devnet/sadaqah-lock/ for the devnet equivalent):
+#   1. Deploy the contract to testnet yourself:
+#        offckb deploy --network testnet --privkey-file <your-funded-key-file>
+#      This produces deployment/testnet/sadaqah-lock/ (deployment.toml +
+#      migrations) -- commit that directory.
+#   2. Fund a dedicated "owner" testnet account (faucet: https://faucet.nervos.org)
+#      and one or more "charity" addresses (these just receive funds, no key needed).
+#   3. In the repo's Settings -> Secrets and variables -> Actions, add:
+#        Secrets:
+#          TESTNET_OWNER_PRIVKEY     owner account's private key (hex)
+#          TESTNET_CHARITY_ADDRESSES comma-separated charity addresses (1-4)
+#        Variables:
+#          TESTNET_VAULT_CODE_HASH      from deployment/testnet/.../migrations/*.json
+#          TESTNET_VAULT_CODE_TX_HASH   from the same file
+#          TESTNET_RPC_URL              optional, defaults to https://testnet.ckbapp.dev/rpc
+on:
+  workflow_dispatch: {}
+
+jobs:
+  e2e:
+    name: vault-client e2e (testnet)
+    runs-on: ubuntu-latest
+    env:
+      CKB_RPC: ${{ vars.TESTNET_RPC_URL || 'https://testnet.ckbapp.dev/rpc' }}
+      OWNER_PRIVKEY: ${{ secrets.TESTNET_OWNER_PRIVKEY }}
+      CHARITY_ADDRESSES: ${{ secrets.TESTNET_CHARITY_ADDRESSES }}
+      VAULT_CODE_HASH: ${{ vars.TESTNET_VAULT_CODE_HASH }}
+      VAULT_CODE_TX_HASH: ${{ vars.TESTNET_VAULT_CODE_TX_HASH }}
+      VAULT_CODE_INDEX: "0"
+      VAULT_HASH_TYPE: data1
+      RATE_BPS: "250"
+      # Keep amounts modest -- this money comes from a real (faucet-funded)
+      # testnet account. Each non-zero charity payout must still be >= 61 CKB.
+      CREATE_AMOUNT_CKB: "2000"
+      WITHDRAW_AMOUNT_CKB: "800"
+      SPLIT_SPEC: "61,62"
+      SHORT_AMOUNT_CKB: "500"
+      FINAL_AMOUNT_CKB: "200"
+      WAIT_MAX_TRIES: "60"
+      WAIT_INTERVAL_SECS: "5"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required secrets/variables are set
+        run: |
+          missing=0
+          for v in OWNER_PRIVKEY CHARITY_ADDRESSES VAULT_CODE_HASH VAULT_CODE_TX_HASH; do
+            if [ -z "${!v:-}" ]; then
+              echo "::error::Missing required secret/variable: $v (see workflow file comments for setup)"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Install Rust toolchain (pinned via rust-toolchain.toml)
+        run: rustup show
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run testnet e2e smoke test
+        run: ./scripts/e2e-vault-client.sh
