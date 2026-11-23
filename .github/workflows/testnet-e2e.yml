@@ -20,6 +20,12 @@ name: Testnet E2E
 #          TESTNET_VAULT_CODE_HASH      from deployment/testnet/.../migrations/*.json
 #          TESTNET_VAULT_CODE_TX_HASH   from the same file
 #          TESTNET_RPC_URL              optional, defaults to https://testnet.ckbapp.dev/rpc
+#          TESTNET_CREATE_AMOUNT_CKB    optional, defaults below -- lower these if your
+#          TESTNET_WITHDRAW_AMOUNT_CKB  faucet grant is small. NOTE: the rate used here
+#          TESTNET_SHORT_AMOUNT_CKB     is deliberately higher than the contract's normal
+#          TESTNET_FINAL_AMOUNT_CKB     default (10% vs. 2.5%) so that 70% of the required
+#                                       share on a modest withdrawal still clears the 61 CKB
+#                                       minimum cell size -- see the math note below.
 on:
   workflow_dispatch: {}
 
@@ -35,14 +41,23 @@ jobs:
       VAULT_CODE_TX_HASH: ${{ vars.TESTNET_VAULT_CODE_TX_HASH }}
       VAULT_CODE_INDEX: "0"
       VAULT_HASH_TYPE: data1
-      RATE_BPS: "250"
-      # Keep amounts modest -- this money comes from a real (faucet-funded)
-      # testnet account. Each non-zero charity payout must still be >= 61 CKB.
-      CREATE_AMOUNT_CKB: "2000"
-      WITHDRAW_AMOUNT_CKB: "800"
+      # 10% here (vs. the contract's normal 2.5% default) purely so the --short
+      # scenario's required share stays comfortably above the 61 CKB minimum
+      # cell size without needing a very large withdrawal. This only affects
+      # this disposable test vault, not any other deployment's configuration.
+      RATE_BPS: "1000"
+      # required = withdrawn * RATE_BPS / 10000, so with a 10% rate:
+      #   step 3 (split):  800 CKB -> required  80 CKB (split 61+62=123 covers it)
+      #   step 4 (short):  1000 CKB -> required 100 CKB, 70% = 70 CKB (>= 61, so it
+      #                    reaches the contract and is correctly rejected there)
+      #   step 5 (final):  200 CKB -> required  20 CKB, bumped up to the 61 CKB minimum
+      # Total spent from the vault: 800 + 200 = 1000 CKB (the --short attempt is
+      # rejected on-chain and consumes nothing), out of the 3000 CKB created.
+      CREATE_AMOUNT_CKB: ${{ vars.TESTNET_CREATE_AMOUNT_CKB || '3000' }}
+      WITHDRAW_AMOUNT_CKB: ${{ vars.TESTNET_WITHDRAW_AMOUNT_CKB || '800' }}
       SPLIT_SPEC: "61,62"
-      SHORT_AMOUNT_CKB: "500"
-      FINAL_AMOUNT_CKB: "200"
+      SHORT_AMOUNT_CKB: ${{ vars.TESTNET_SHORT_AMOUNT_CKB || '1000' }}
+      FINAL_AMOUNT_CKB: ${{ vars.TESTNET_FINAL_AMOUNT_CKB || '200' }}
       WAIT_MAX_TRIES: "60"
       WAIT_INTERVAL_SECS: "5"
     steps:
