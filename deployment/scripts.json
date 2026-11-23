@@ -1,5 +1,6 @@
 {
-  "devnet": {
+  "devnet": {},
+  "testnet": {
     "sadaqah-lock": {
       "codeHash": "0x0144eab3d3b4ecbcadb0eae7099cc37cd1736c5a85ff6afec6bf19314d60542c",
       "hashType": "data2",
@@ -7,7 +8,7 @@
         {
           "cellDep": {
             "outPoint": {
-              "txHash": "0x6f2881d05a43264c8d19ced3b4e80d5dfa0be2fa8e7fa747d9aa28b78f4c32ea",
+              "txHash": "0x4dd35430c3d4a8fc8a30dff15397f9c52c7c7a45aa2766dc0a5ae1f570851691",
               "index": 0
             },
             "depType": "code"
@@ -16,6 +17,5 @@
       ]
     }
   },
-  "testnet": {},
   "mainnet": {}
 }
